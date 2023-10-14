@@ -1,7 +1,7 @@
 class CustomList(list):
     def __str__(self):
         return f"{list(self)} ({sum(self)})"
-        
+
     def __add__(self, other_list):
         if isinstance(other_list, list):
             other_list = CustomList(other_list)
