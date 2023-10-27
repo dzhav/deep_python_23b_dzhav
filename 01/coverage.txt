@@ -1,13 +1,14 @@
 Name          Stmts   Miss  Cover
 ---------------------------------
-mmf.py            9      0   100%
-test_mmf.py      26      0   100%
+mmf.py           10      1    90%
+test_mmf.py      64      0   100%
 ---------------------------------
-TOTAL            35      0   100%
+TOTAL            74      1    99%
 
 Name                 Stmts   Miss  Cover
 ----------------------------------------
-gen_f_read.py            8      0   100%
-test_gen_f_read.py      42      0   100%
+gen_f_read.py           11      0   100%
+test_gen_f_read.py     119      0   100%
 ----------------------------------------
-TOTAL                   50      0   100%
+TOTAL                  130      0   100%
+

@@ -1,8 +1,11 @@
-def gen(file_name, a):
-    for line in open(file_name, "r"):
+def gen(file, words):
+    if isinstance(file, str):
+        file = open(file, "r")
+    for line in file:
         flag = False
         for word in line.split():
-            for i in a:
+            for i in words:
                 if (word.lower() == i.lower() and not (flag)):
                     flag = True
                     yield line
+    file.close()
