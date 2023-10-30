@@ -74,6 +74,34 @@ class Test(unittest.TestCase):
         self.assertEqual("отл", result)
         model_mock.predict.assert_called_once_with("message123456789")
 
+    def test_ans_predict_left_edge_left(self):
+        model_mock = MagicMock()
+        model_mock.predict.return_value = 0.299
+        result = predict_message_mood("***", model_mock)
+        self.assertEqual("неуд", result)
+        model_mock.predict.assert_called_once_with("***")
+
+    def test_ans_predict_left_edge_right(self):
+        model_mock = MagicMock()
+        model_mock.predict.return_value = 0.301
+        result = predict_message_mood("***", model_mock)
+        self.assertEqual("норм", result)
+        model_mock.predict.assert_called_once_with("***")
+        
+    def test_ans_predict_right_edge_left(self):
+        model_mock = MagicMock()
+        model_mock.predict.return_value = 0.799
+        result = predict_message_mood("***", model_mock)
+        self.assertEqual("норм", result)
+        model_mock.predict.assert_called_once_with("***")
+
+    def test_ans_predict_right_edge_right(self):
+        model_mock = MagicMock()
+        model_mock.predict.return_value = 0.801
+        result = predict_message_mood("***", model_mock)
+        self.assertEqual("отл", result)
+        model_mock.predict.assert_called_once_with("***")    
+
 
 if __name__ == '__main__':
     unittest.main()
