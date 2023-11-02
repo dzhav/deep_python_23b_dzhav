@@ -3,8 +3,6 @@ class CustomList(list):
         return f"{list(self)} ({sum(self)})"
 
     def __add__(self, other_list):
-        if isinstance(other_list, list):
-            other_list = CustomList(other_list)
         ans = CustomList()
         for i in range(0, max(len(self), len(other_list))):
             if i < len(self) and i < len(other_list):
@@ -19,8 +17,6 @@ class CustomList(list):
         return self + other_list
 
     def __sub__(self, other_list):
-        if isinstance(other_list, list):
-            other_list = CustomList(other_list)
         ans = CustomList()
         for i in range(0, max(len(self), len(other_list))):
             if i < len(self) and i < len(other_list):
@@ -32,8 +28,6 @@ class CustomList(list):
         return ans
 
     def __rsub__(self, other_list):
-        if isinstance(other_list, list):
-            other_list = CustomList(other_list)
         ans = CustomList()
         for i in range(0, max(len(self), len(other_list))):
             if i < len(self) and i < len(other_list):
@@ -45,31 +39,19 @@ class CustomList(list):
         return ans
 
     def __eq__(self, other_list):
-        if isinstance(other_list, list):
-            other_list = CustomList(other_list)
         return sum(self) == sum(other_list)
 
     def __ne__(self, other_list):
-        if isinstance(other_list, list):
-            other_list = CustomList(other_list)
         return sum(self) != sum(other_list)
 
     def __gt__(self, other_list):
-        if isinstance(other_list, list):
-            other_list = CustomList(other_list)
         return sum(self) > sum(other_list)
 
     def __ge__(self, other_list):
-        if isinstance(other_list, list):
-            other_list = CustomList(other_list)
         return sum(self) >= sum(other_list)
 
     def __lt__(self, other_list):
-        if isinstance(other_list, list):
-            other_list = CustomList(other_list)
         return sum(self) < sum(other_list)
 
     def __le__(self, other_list):
-        if isinstance(other_list, list):
-            other_list = CustomList(other_list)
         return sum(self) <= sum(other_list)
