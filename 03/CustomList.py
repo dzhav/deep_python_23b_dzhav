@@ -55,3 +55,11 @@ class CustomList(list):
 
     def __le__(self, other_list):
         return sum(self) <= sum(other_list)
+
+    def element_wise_comparison(self, other_list):
+        if len(self) == len(other_list) and isinstance(other_list, CustomList):
+            for i in range(len(self)):
+                if self[i] != other_list[i]:
+                    return False
+            return True
+        return False
