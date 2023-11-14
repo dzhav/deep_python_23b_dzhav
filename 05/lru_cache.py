@@ -1,7 +1,7 @@
 from Node import Node
 
 
-class LRUCache:
+class lru_cache:
     def __init__(self, limit=42):
         self.limit = limit
         self.cache = {}
@@ -31,13 +31,13 @@ class LRUCache:
         return removed_node
 
     def get(self, key):
-        if not(key in self.cache):
+        if key not in self.cache:
             return None
         self.move_to_front(self.cache[key])
         return self.cache[key].value
 
     def add_to_front(self, node):
-        if self.head != None:
+        if self.head is not None:
             node.nextnode = self.head
             self.head.prevnode = node
         else:
@@ -49,8 +49,8 @@ class LRUCache:
             return
         if node == self.tail:
             self.tail = node.prevnode
-        if node.prevnode != None:
+        if node.prevnode is not None:
             node.prevnode.nextnode = node.nextnode
-        if node.nextnode != None:
+        if node.nextnode is not None:
             node.nextnode.prevnode = node.prevnode
         self.add_to_front(node)
