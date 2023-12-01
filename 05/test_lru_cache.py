@@ -59,6 +59,19 @@ class Test(unittest.TestCase):
         cache.set("k3", "val3")
         self.assertEqual(cache.get("k3"), "val3")
 
+    def test_changing_value_existing_key(self):
+        cache = lru_cache(3)
+        cache.set("k1", "val1")
+        cache.set("k2", "val2")
+        cache.set("k3", "val3")
+        cache.set("k1", "newval1")
+        self.assertEqual(cache.get("k1"), "newval1")
+        cache.set("k4", "val4")
+        self.assertEqual(cache.get("k1"), "newval1")
+        self.assertEqual(cache.get("k3"), "val3")
+        self.assertEqual(cache.get("k4"), "val4")
+        self.assertIsNone(cache.get("k2"))
+
 
 if __name__ == '__main__':
     unittest.main()
