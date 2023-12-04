@@ -1,0 +1,4 @@
+2023-12-04 15:49:34,778 | INFO | Get key 1: dog
+2023-12-04 15:49:34,778 | INFO | Get key 3: None
+2023-12-04 15:49:34,778 | WARNING | This is warning
+2023-12-04 15:49:34,779 | ERROR | This is error
